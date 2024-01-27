@@ -2,7 +2,7 @@
 
 More on control flow and conditionals in Python
 
-## Resources
+## Resources :books:
 
 [Python For loops](https://www.geeksforgeeks.org/python-for-loops/?ref=lbp)
 
