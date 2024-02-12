@@ -14,20 +14,20 @@ Description: Implement a program that:
                 o If the guess is the same as that integer, the program should output "Just right!" and exit.
 """
 
+
 from random import randint
 import sys
 
 
 def main():
-    # allow any positive integer including 1
-    number = get_positive_integer("Level: ", allow_zero=False)
-    answer = randint(1, number)
+    """Guess a number game"""
+    # accept all positive integers starting from 1
+    level = get_int("Level: ", min_val=1)
+    answer = randint(1, level)
 
     while True:
-        # check if level is 1, allow 0 as a guess
-        allow_zero_guess = (number == 1)
-        guess = get_positive_integer("Guess: ", allow_zero=allow_zero_guess)
-        
+        # get guess number, accept 0 as guess if level is 1
+        guess = get_int("Guess: ", min_val=0 if level == 1 else 1)
         if guess < answer:
             print("Too small!")
         elif guess > answer:
@@ -37,12 +37,12 @@ def main():
             sys.exit(0)
 
 
-def get_positive_integer(prompt, allow_zero):
-    """check if user input is a positive integer or not"""
+def get_int(prompt, min_val):
+    """Prompt for an integer with a minimum value, reprompting on invalid input."""
     while True:
         try:
             value = int(input(prompt))
-            if value > 0 or (allow_zero and value == 0):
+            if value >= min_val:
                 return value
             else:
                 pass
