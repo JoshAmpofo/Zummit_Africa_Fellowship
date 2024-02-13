@@ -13,30 +13,53 @@ Description: Implement a program that:
              - Catch any exceptions as appropriate
 """
 
+import json
 import requests
 import sys
 
-# Error checks
-if len(sys.argv) != 2:
-    sys.exit("Missing command-line argument")
-try:
-    num_bitcoins = float(sys.argv[1])
-except ValueError:
-    sys.exit("Command-line argument is not a number")
 
-# get price index
-try:
-    response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+def main():
+    """run logic for bitcoin price checker program"""
+    num_bitcoins = get_num_bitcoins()
+    current_price_usd = get_bitcoin_price()
+    total_amount = calculate_price(num_bitcoins, current_price_usd)
+    print(f"$ {total_amount:.4f}")
+
+
+def get_num_bitcoins():
+    """Retrieves the number of bitcoins to check amount in USD"""
+    # Error checks
+    if len(sys.argv) != 2:
+        sys.exit("Missing command-line argument")
+    try:
+        return float(sys.argv[1])
+    except ValueError:
+        sys.exit("Command-line argument is not a number")
+
+
+def get_bitcoin_price():
+    """get bitcoin price in USD based on number of coins inputted by user"""
+
+    url = "https://api.coindesk.com/v1/bpi/currentprice.json"
+    # get price index
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # HTTPError catch
+        data = response.json()
+        return data["bpi"]["USD"]["rate_float"]
     # error checking for request
-    response.raise_for_status() # HTTPError catch
-except requests.RequestException as e:
-    sys.exit(f"Request Error: {e}")
+    except requests.RequestException as e:
+        sys.exit(f"Request Error: {e}")
+    except (KeyError, ValueError, TypeError) as e:
+        sys.exit(f"Error: {e}")
 
-# calculate bitcoin price
-try:
-    response_json = response.json()
-    current_price_usd = response_json['bpi']['USD']['rate_float']
-    total_price = current_price_usd * num_bitcoins
-    print(f"${total_price:.4f}")
-except (KeyError, ValueError, TypeError) as e:
-    sys.exit(f"Error: {e}")
+
+def calculate_price(num_bitcoins, price_per_bitcoin):
+    """
+    Calculates the total price for a given number of bitcoins
+    """
+    return num_bitcoins * price_per_bitcoin
+
+
+if __name__ == "__main__":
+    main()
