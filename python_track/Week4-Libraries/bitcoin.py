@@ -13,7 +13,6 @@ Description: Implement a program that:
              - Catch any exceptions as appropriate
 """
 
-import json
 import requests
 import sys
 
