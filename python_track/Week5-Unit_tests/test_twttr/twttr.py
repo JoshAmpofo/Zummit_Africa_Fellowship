@@ -14,11 +14,12 @@ Description: Reimplement Setting up my twttr from Problem Set 2, restructuring t
 def main():
     text = input("Input text: ").strip()
     print(shorten(text))
-
+    
 
 def shorten(text):
     """Remove all vowels from input text"""
     VOWELS = ['A', 'E', 'I', 'O', 'U']
+    
 
     # create empty string to store new word
     new_word = ""
@@ -26,7 +27,7 @@ def shorten(text):
     # iterate through each character in word
     for char in text:
         if char.upper() not in VOWELS: # check if word is not in vowels list
-            new_word += char # form ne word
+            new_word += char # form new word
     return new_word
 
 
