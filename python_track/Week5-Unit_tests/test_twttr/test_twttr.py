@@ -12,6 +12,7 @@ Description: Implement one or more functions that collectively test the implemen
 """
 
 from twttr import shorten
+import pytest
 
 
 def test_argument_uppercase():
@@ -57,6 +58,12 @@ def test_full_alphabet():
     assert shorten("abcdefghijklmnopqrstuvwxyz") == "bcdfghjklmnpqrstvwxyz"
 
 
-def test_empty_strin():
+def test_empty_string():
     """Test if function returns an empty string when given an empty string"""
     assert shorten("") == ""
+
+
+def test_numbers():
+    """Test if function raises a TypeError when numbers or symbols are entered"""
+    with pytest.raises(ValueError):
+        shorten("1234")
