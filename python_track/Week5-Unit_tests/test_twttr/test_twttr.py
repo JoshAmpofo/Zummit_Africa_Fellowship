@@ -42,6 +42,19 @@ def test_longer_str():
     assert shorten("i love python") == " lv pythn"
 
 
+def test_numbers():
+    """Test if function removes vowels from strings while omitting numbers"""
+    assert shorten("FANZOR123") == "FNZR123"
+    assert shorten("fan123or") == "fn123r"
+    assert shorten("NoR5792wAy") == "NR5792wy"
+
+
+def test_punct():
+    """Test if function removes vowels while ignoring punctuation"""
+    assert shorten("FAN.ZOR123") == "FN.ZR123"
+    assert shorten("5.TwiTTer") == "5.TwTTr"
+
+
 def test_single_character():
     """Test if function can handle string with only one character"""
     assert shorten("a") == ""
