@@ -2,13 +2,6 @@
 Author: Joshua Ampofo Yentumi
 
 Problem 2: Tests for Back to the Bank
-
-Description: Re-implement Home Federal Savings Bank from Problem Set 1.
-             restructuring the code per the below, wherein ```value``` expects a ```str``` as input and returns
-             an ```int```, namely 0 if that str starts with "hello", 20 if that str starts with an "h" (but not "hello"),
-             or 100 otherwise, treating the str case-insentively.
-             Assume that the string passed to the ```value``` function will not contain any leading spaces.
-             Only "main" should call ```print```
 """
 
 
@@ -36,6 +29,14 @@ def test_other_greeting():
     assert value("good morning") == 100
     assert value("good afternoon") == 100
     assert value("good evening") == 100
+
+
+def test_case_insensitive():
+    """Test if function returns appropriate amount regardless of string case"""
+    assert value("Good Morning") == 100
+    assert value("heLLo") == 0
+    assert value("Hello") == 0
+    assert value("Hey") == 20
 
 
 def test_greeting_not_a_str():
