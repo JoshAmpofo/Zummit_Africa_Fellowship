@@ -52,7 +52,7 @@ def count_lines(filename):
                     line_count += 1
             return line_count
     except FileNotFoundError:
-        return "File does not exist"
+        sys.exit("File does not exist")
 
 
 if __name__ == "__main__":
