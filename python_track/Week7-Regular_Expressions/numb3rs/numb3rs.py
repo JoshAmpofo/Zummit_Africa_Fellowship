@@ -32,10 +32,7 @@ def validate(ip):
         r"^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$",
         ip,
     )
-    if match:
-        return True
-    else:
-        return False
+    return True if match else False
 
 
 if __name__ == "__main__":
