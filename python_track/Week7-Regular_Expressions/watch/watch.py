@@ -35,8 +35,7 @@ def parse(s):
     """
     if match := re.search(r"src=\"(.*?embed.*?)\"", s, re.IGNORECASE):
         split_url = match.group(1).split("/")
-        short_url = "https://youtu.be/" + split_url[4]
-        return short_url
+        return ("https://youtu.be/" + split_url[4])
     else:
         return None
 
