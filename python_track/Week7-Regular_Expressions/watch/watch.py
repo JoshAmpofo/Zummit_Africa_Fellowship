@@ -33,8 +33,7 @@ def parse(s):
     Returns:
         (str): shortened shareable youtube URL
     """
-    match = re.search(r"src=\"(.*?embed.*?)\"", s, re.IGNORECASE)
-    if match:
+    if match := re.search(r"src=\"(.*?embed.*?)\"", s, re.IGNORECASE):
         split_url = match.group(1).split("/")
         short_url = "https://youtu.be/" + split_url[4]
         return short_url
