@@ -49,7 +49,7 @@ def print_image(name, URL):
     pdf.add_page() # create page
     pdf.add_image(URL) # add image
     pdf.add_text(name + " took CS50")
-    pdf.output("shirtificate_2.pdf") # output
+    pdf.output("shirtificate.pdf") # output
     
 
 if __name__ == "__main__":
