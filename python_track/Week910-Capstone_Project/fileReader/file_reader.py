@@ -111,8 +111,8 @@ def pdfFile(filepath, volume=25, rate=20, voice=0):
         rate (int): default speech rate of TTS engine
         voice (int): default voice id of TTS engine
     """
-    reader = PdfReader(filepath)
     try:
+        reader = PdfReader(filepath)
         for page in reader.pages:
             extracted_text = page.extract_text(
                 extraction_mode="layout", layout_mode_scale_weight=1.0
