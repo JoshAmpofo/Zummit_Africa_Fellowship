@@ -1,4 +1,4 @@
-# Simple File Reader :files:
+# Simple File Reader :books:
 
 ## Video Demo: <#URL HERE>
 
