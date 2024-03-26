@@ -55,7 +55,7 @@ After installation, you can run the program using the following command:
   - **voice**: Select a voice for speech synthesis (currently supports only two voices: male[id=0] and female[id=1]).
 
 `For example:`
-`python file_reader.py example.pdf volume=70 rate=80 voice=1`
+`python file_reader.py example.pdf --volume=70 --rate=80 --voice=1`
 
 - The program will run successfully even without specifying any additional options. The default settings will be used in this case
 `For example:`
