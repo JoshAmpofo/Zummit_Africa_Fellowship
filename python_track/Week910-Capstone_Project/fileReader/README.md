@@ -84,3 +84,5 @@ The [**controls.py**](controls.py) file provides additional functionality to con
 
 - Several tests were written to check the robustness, correctness and reproducibility of this program.
 These tests can be found here [**Tests**](test_filereader.py).
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
