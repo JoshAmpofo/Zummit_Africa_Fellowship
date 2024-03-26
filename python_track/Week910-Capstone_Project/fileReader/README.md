@@ -1,21 +1,23 @@
-# Simple File Reader
+# Simple File Reader :files:
+
+## Video Demo: <#URL HERE>
+
+### Synopsis
 
 Reading is an essential skill for a developer. It helps you improve your knowledge as well as stay up to date with happenings around you.
 However, the hustle and bustle of everyday living can result in not having time to read. To solve this challenge, the *file_reader* program was developed.
 
 ## Table of Contents
 
-- **Description**
-- **Installation**
-- **Usage**
-- **Supported File Types**
-- **Controls**
-- **Contributing**
-- **Testing**
+- [**Description**](#description)
+- [**Installation**](#installation)
+- [**Usage**](#usage)
+- [**Supported File Types**](#supported-file-types)
+- [**Controls**](#controls)
+- [**Contributing**](#contributing)
+- [**Testing**](#testing)
 
 ## Description
-
-[Description](#description)
 
 This is a simple command-line program that can read PDF, text, and Word document files. It utilizes the Python libraries **pypdf**, **docx**, and **pyttsx3** for reading PDFs, Word documents, and converting text to speech, respectively. The main program can be found in the **file_reader.py** file.
 
@@ -31,8 +33,6 @@ Going forward, additional functionality will be added to enhance the reading exp
 
 ## Installation
 
-[Installation](#installation)
-
 To use the **file_reader** program, follow these steps:
 
 - Clone this repository to your local machine:
@@ -42,8 +42,6 @@ To use the **file_reader** program, follow these steps:
 `pip install -r requirements.txt`
 
 ## Usage
-
-[Usage](#usage)
 
 After installation, you can run the program using the following command:
 
@@ -63,8 +61,6 @@ After installation, you can run the program using the following command:
 
 ## Supported File Types
 
-[Supported File Types](#supported-file-types)
-
 - The program supports the following file types:
   - *PDF*: Use **.pdf** files.
   - *Text*: Use **.txt** files.
@@ -72,15 +68,11 @@ After installation, you can run the program using the following command:
 
 ## Controls
 
-[Controls](#controls)
-
 The [**controls.py**](controls.py) file provides additional functionality to control the reading experience. You can adjust the volume, speech rate, and select different voices for speech synthesis.
 
 ## Contributing
 
-[Contributing](#contributing)
-
-- Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+- While I'll do my best to improve the functionality of this program, contributions are welcome! If you'd like to contribute to this project, please follow these steps:
   - **Fork the repository**.
   - **Create a new branch (git checkout -b feature/new-feature).**
   - **Make your changes.**
@@ -89,8 +81,6 @@ The [**controls.py**](controls.py) file provides additional functionality to con
   - **Create a new Pull Request.**
 
 ## Testing
-
-[Testing](#testing)
 
 - Several tests were written to check the robustness, correctness and reproducibility of this program.
 These tests can be found here [**Tests**](test_filereader.py).
