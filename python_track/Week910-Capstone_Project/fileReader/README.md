@@ -21,7 +21,7 @@ This is a simple command-line program that can read PDF, text, and Word document
 
 Helper functions like the reader controls that allow the user to adjust the *volume*, choose the *speed rate* of the reader as well as the *voice* to use, can be found in the **controls.py** file.
 
-Tests for the robustness and correctness of the program can be found in the **test_reader.py** file.
+Tests for the robustness and correctness of the program can be found in the **test_filereader.py** file.
 
 Dependencies required for the program to run successfully can be found in the **requirements.txt** file.
 
