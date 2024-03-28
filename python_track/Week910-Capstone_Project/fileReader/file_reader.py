@@ -13,7 +13,7 @@ from controls import FileReaderControls
 import pyttsx3
 import argparse
 
-engine = pyttsx3.init()
+engine = pyttsx3.init() # initialize engine
 
 
 def main():
@@ -31,16 +31,16 @@ def main():
     parser.add_argument(
         "-v",
         "--volume",
-        type=int,
-        default=25,
-        help="volume level of reader engine(0-100)",
+        type=float,
+        default=1.0,
+        help="volume level of reader engine(0.0-1.0)",
     )
     parser.add_argument(
         "-r",
         "--rate",
         type=int,
-        default=20,
-        help="speech rate or speed of reader engine (0-100)",
+        default=200,
+        help="speech rate or speed of reader engine (0-200)",
     )
     parser.add_argument(
         "-v-id",
