@@ -1,0 +1,4 @@
+MILESTONES
+
+Week 1.
+- read up on biopython and check out what features it carries that can help in sequence analyses.

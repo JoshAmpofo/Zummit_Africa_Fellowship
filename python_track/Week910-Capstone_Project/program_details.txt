@@ -1,0 +1,35 @@
+SOME QUESTIONS TO ASK
+- What will your software do? What features will it have? How will it be executed?
+- What new skills will you need to acquire? What topics will you need to research?
+- In the world of software, most everything takes longer to implement than you expect, and
+so it's not uncommon to accomplish less in a fixed amount of time than you hope.
+What might you consider to be a good outcome for your project? A better outcome? The best outcome?
+ Consider making goal milestones to keep you on track.
+
+ANSWERS
+Name: Sequence Analyzer
+MVP DETAILS
+Description (what will your software do): This program takes user input in the form of text sequences or sequences typed in the GUI.
+The program then analyzes the sequence and returns details such as: 
+		- GC content
+		- Number of ORFs
+		- Amino acid sequence
+		- *Protein structure (maybe use an API from PDB)
+		- sequence length
+
+What is required:
+- CLI tool since it will be run on the command line
+- conversance with a bioiformatics tool (biopython, maybe?)
+- maybe a GUI (for later)
+- any more to add?
+
+How will it be executed? 
+I'm looking at creating a GUI that users can interact with, hence the soln will be web-based? or program will be run as an executable?
+
+What skills will you need to acquire?
+I will need to understand how to use bioinformatic tools for the analyses, API calls to the required protein databases as well as how to build a simple python GUI-based application. Topics around GUI development, sequence analysis tools, and possible hosting, will need to be covered.
+
+OUTCOMES
+A good outcome will be a GUI that can accept sequences typed in and then return analyses.
+A better outcome will be the addition of section where users can upload a text file containing the target sequences and the analyses will be done.
+The best outcome will be the presence of dropdown menus that allows users to choose what analyses they want done. Additionally, maybe the application can be integrated with an LLM or other AI systems to improve the tyoe of analyses that will be done.

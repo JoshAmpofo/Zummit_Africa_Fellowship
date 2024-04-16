@@ -1,0 +1,9 @@
+# Extra DNA functions
+
+def convert_to_rna(file): ...
+
+
+def reverse_seq(file): ...
+
+
+def transcribe(file): ...
