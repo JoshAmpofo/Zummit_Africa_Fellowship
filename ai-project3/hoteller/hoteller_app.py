@@ -1,14 +1,28 @@
+import os
 import numpy as np
 import pandas as pd
 import pickle
 import streamlit as st
 
+# search filepath
+def find_file(filename, search_path='.'):
+    for root, dirs, files in os.walk(search_path):
+        if filename in files:
+            return os.path.join(root, filename)
+    raise FileNotFoundError(f"{filename} not found in the directory tree.")
+
+
+# find file
+model_path = find_file('hoteller_model.sav')
+data_path = find_file("hotel_df.csv")
+
+
 # load saved model
-with open('hoteller_model.sav', 'rb') as f:
+with open(model_path, 'rb') as f:
     lmodel = pickle.load(f)
     
 # load hotel_df
-hotel_df = pd.read_csv('hotel_df.csv')
+hotel_df = pd.read_csv(data_path)
 
             
 def hotel_recommendations(model, user_id, city, user_features=None, item_features=None, num_recommendations=10):
@@ -64,7 +78,7 @@ def main():
     # style title
     st.set_page_config(page_title='Hoteller', page_icon="🏨", layout="wide")
     # give page a title
-    st.title("Hotel Recommendations with Hoteller 🏨")
+    st.title("Hotels with Hoteller 🏨")
     # user input fields
     user_id = st.text_input("Username", placeholder="Enter your username")
     city = st.text_input("City", placeholder="Enter your city", help="City you're looking for hotels")
