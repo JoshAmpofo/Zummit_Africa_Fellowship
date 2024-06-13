@@ -61,11 +61,13 @@ def hotel_recommendations(model, user_id, city, user_features=None, item_feature
 
 # streamlit app
 def main():
+    # style title
+    st.set_page_config(page_title='Hoteller', page_icon="🏨", layout="wide")
     # give page a title
-    st.title("Hoteller")
+    st.title("Hotel Recommendations with Hoteller 🏨")
     # user input fields
-    user_id = st.text_input("Username")
-    city = st.text_input("City")
+    user_id = st.text_input("Username", placeholder="Enter your username")
+    city = st.text_input("City", placeholder="Enter your city", help="City you're looking for hotels")
     num_recommendations = st.number_input("Number of recommendations", min_value=1, max_value=10, value=5, step=1)
 
     if st.button("Recommend"):
