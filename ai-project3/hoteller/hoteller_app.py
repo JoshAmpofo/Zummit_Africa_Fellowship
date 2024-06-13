@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pickle
-import streamlit
+import streamlit as st
 
 # load saved model
 with open('hoteller_model.sav', 'rb') as f:
@@ -10,27 +10,6 @@ with open('hoteller_model.sav', 'rb') as f:
 # load hotel_df
 hotel_df = pd.read_csv('hotel_df.csv')
 
-# Streamlit app
-def main():
-    streamlit.title("Hoteller")
-
-    user_id = streamlit.text_input("Username")
-    city = streamlit.text_input("City")
-    num_recommendations = streamlit.number_input("Number of reccommendations", min_value=1, max_value=10, value=5, step=1)
-
-    if streamlit.button("Get Recommendations"):
-        try:
-            recommendations = hotel_recommendations(lmodel, user_id, city, num_recommendations=num_recommendations)
-            if recommendations:
-                streamlit.write(f"Recommending hotels for {user_id} in {city}:")
-                for index, recommendation in enumerate(recommendations, start=1):
-                    streamlit.markdown(f"{index}. **{recommendation}**") 
-            else:
-                streamlit.write("No recommendations found.")
-        except ValueError as e:
-            streamlit.write(str(e))
-        except IndexError:
-            streamlit.write(str(e))
             
 def hotel_recommendations(model, user_id, city, user_features=None, item_features=None, num_recommendations=10):
     """
@@ -79,6 +58,29 @@ def hotel_recommendations(model, user_id, city, user_features=None, item_feature
 
     # Return the list of recommended hotel IDs
     return item_ids[top_items].tolist()
+
+# streamlit app
+def main():
+    # give page a title
+    st.title("Hoteller")
+    # user input fields
+    user_id = st.text_input("Username")
+    city = st.text_input("City")
+    num_recommendations = st.number_input("Number of recommendations", min_value=1, max_value=10, value=5, step=1)
+
+    if st.button("Recommend"):
+        try:
+            recommendations = hotel_recommendations(lmodel, user_id, city, num_recommendations=num_recommendations)
+            if recommendations:
+                st.write(f"Recommending hotels for {user_id} in {city}:")
+                for index, recommendation in enumerate(recommendations, start=1):
+                    st.markdown(f"{index}. **{recommendation}**") 
+            else:
+                st.write("No recommendations found.")
+        except ValueError as e:
+            st.write(str(e))
+        except IndexError:
+            st.write(str(e))
 
 if __name__ == '__main__':
     main()
